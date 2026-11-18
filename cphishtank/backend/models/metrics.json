@@ -1,0 +1,234 @@
+{
+  "upgrade_status": {
+    "status": "not_evaluated",
+    "after_metrics": null,
+    "reason": "The upgraded binary pipeline has not been validated. A distinct frozen blind set of at least 100 modern hand-labeled messages is required before training and blind evaluation.",
+    "blind_set": {
+      "required_minimum": 100,
+      "available_frozen_set": false,
+      "existing_legacy_set_size": 32
+    },
+    "report": "docs/model_evaluation.md"
+  },
+  "trained_at": "2026-10-24T11:29:42+00:00",
+  "samples": 19292,
+  "class_balance": {
+    "legitimate": 13457,
+    "phishing": 4115,
+    "suspicious": 1720
+  },
+  "data_sources": [
+    "nus_sms",
+    "phishing_pot",
+    "smishtank",
+    "spamassassin_easy-ham-1",
+    "spamassassin_easy-ham-2",
+    "spamassassin_hard-ham-1",
+    "spamassassin_spam-1",
+    "spamassassin_spam-2",
+    "synthetic_bec",
+    "synthetic_legit",
+    "uci_sms"
+  ],
+  "uses_real_data": true,
+  "algorithm": "TF-IDF(1-2gram) + LogisticRegression(C=4, balanced)",
+  "class_channel": {
+    "legitimate/email": 3908,
+    "legitimate/sms": 9549,
+    "phishing/email": 3236,
+    "phishing/sms": 879,
+    "suspicious/email": 1195,
+    "suspicious/sms": 525
+  },
+  "random_split": {
+    "three_class": {
+      "n": 3695,
+      "accuracy": 0.9732,
+      "macro_f1": 0.9564,
+      "per_class": {
+        "legitimate": {
+          "precision": 0.9817,
+          "recall": 0.9875,
+          "f1-score": 0.9846,
+          "support": 2551
+        },
+        "suspicious": {
+          "precision": 0.9275,
+          "recall": 0.9302,
+          "f1-score": 0.9289,
+          "support": 344
+        },
+        "phishing": {
+          "precision": 0.9656,
+          "recall": 0.9463,
+          "f1-score": 0.9558,
+          "support": 800
+        }
+      },
+      "confusion_matrix": [
+        [
+          2519,
+          15,
+          17
+        ],
+        [
+          14,
+          320,
+          10
+        ],
+        [
+          33,
+          10,
+          757
+        ]
+      ]
+    },
+    "binary": {
+      "precision": 0.9717,
+      "recall": 0.9589,
+      "f1": 0.9652,
+      "false_positive_rate": 0.0125,
+      "tp": 1097,
+      "fp": 32,
+      "fn": 47,
+      "tn": 2519,
+      "roc_auc": 0.9931
+    }
+  },
+  "temporal": {
+    "train_phishing_pot_up_to": "2026-05-17",
+    "test_phishing_emails": 639,
+    "recall_flagged_risky": 0.8638,
+    "recall_exact_label_phishing": 0.856,
+    "false_positive_rate_on_legit": 0.0129
+  },
+  "leave_one_source_out": {
+    "phishing_pot": {
+      "n": 3202,
+      "by_true_class": {
+        "phishing": {
+          "n": 3202,
+          "predicted_legitimate": 0.1505,
+          "predicted_risky": 0.8495,
+          "exact_label": 0.3891
+        }
+      },
+      "note": ""
+    },
+    "smishtank": {
+      "n": 793,
+      "by_true_class": {
+        "phishing": {
+          "n": 793,
+          "predicted_legitimate": 0.2018,
+          "predicted_risky": 0.7982,
+          "exact_label": 0.6595
+        }
+      },
+      "note": ""
+    },
+    "spamassassin": {
+      "n": 5096,
+      "by_true_class": {
+        "legitimate": {
+          "n": 3901,
+          "predicted_legitimate": 0.4953,
+          "predicted_risky": 0.5047,
+          "exact_label": 0.4953
+        },
+        "suspicious": {
+          "n": 1195,
+          "predicted_legitimate": 0.005,
+          "predicted_risky": 0.995,
+          "exact_label": 0.01
+        }
+      },
+      "note": "no other 'suspicious' email data in training, so this class is not interpretable"
+    },
+    "uci_sms": {
+      "n": 4381,
+      "by_true_class": {
+        "legitimate": {
+          "n": 3856,
+          "predicted_legitimate": 0.987,
+          "predicted_risky": 0.013,
+          "exact_label": 0.987
+        },
+        "suspicious": {
+          "n": 525,
+          "predicted_legitimate": 0.3162,
+          "predicted_risky": 0.6838,
+          "exact_label": 0.0362
+        }
+      },
+      "note": "no other 'suspicious' sms data in training, so this class is not interpretable"
+    },
+    "nus_sms": {
+      "n": 5000,
+      "by_true_class": {
+        "legitimate": {
+          "n": 5000,
+          "predicted_legitimate": 0.9916,
+          "predicted_risky": 0.0084,
+          "exact_label": 0.9916
+        }
+      },
+      "note": ""
+    }
+  },
+  "external_spamdam": {
+    "n": 3000,
+    "flagged_as_risky": 0.8113,
+    "predicted_phishing": 0.692
+  },
+  "headline": {
+    "name": "random split on cleaned real data",
+    "accuracy": 0.9732,
+    "macro_f1": 0.9564,
+    "binary_f1": 0.9652
+  },
+  "top_features": {
+    "legitimate": [
+      "url urltoken",
+      "url",
+      "urltoken numtoken",
+      "but",
+      "haha",
+      "at urltoken",
+      "that",
+      "at",
+      "ok",
+      "lol",
+      "spam",
+      "so"
+    ],
+    "phishing": [
+      "urltoken",
+      "your",
+      "urlclean",
+      "urltoken urlclean",
+      "urltoken urlshort",
+      "urlshort",
+      "urlclean urltoken",
+      "spins",
+      "unsubscribe",
+      "bonus",
+      "numtoken",
+      "payment"
+    ],
+    "suspicious": [
+      "free",
+      "call numtoken",
+      "txt",
+      "click here",
+      "click",
+      "call",
+      "to numtoken",
+      "numtoken",
+      "text",
+      "our",
+      "credit",
+      "reply"
+    ]
+  }
+}

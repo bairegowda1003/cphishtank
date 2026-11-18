@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "CPhishTank: Phishing Checker",
+  "version": "1.0.0",
+  "description": "Check the open email or any selected text for phishing, with a plain-language explanation.",
+  "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
+  "host_permissions": ["http://localhost:8000/*", "http://127.0.0.1:8000/*", "https://mail.google.com/*"],
+  "optional_host_permissions": ["https://*/*"],
+  "action": { "default_popup": "popup.html", "default_title": "Check with CPhishTank" },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["https://mail.google.com/*"], "js": ["gmail.js"], "css": ["gmail.css"], "run_at": "document_idle" }
+  ],
+  "options_page": "options.html"
+}

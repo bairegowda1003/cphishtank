@@ -1,0 +1,7 @@
+# Local phishing blocklist: one domain per line.
+# The entries below are DEMO values. Run `python -m app.ml.import_phishtank` to append
+# verified-online domains from PhishTank (needs internet access).
+paypa1-secure-login.com
+secure-hdfc-kyc.top
+amazon-refund-center.xyz
+netflix-billing-update.click

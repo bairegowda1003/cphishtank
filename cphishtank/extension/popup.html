@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><span class="mark"></span><b>CPhishTank</b><a id="opt" href="#">Settings</a></header>
+  <main>
+    <p class="hint">Check the text you've selected on this page, or paste a message.</p>
+    <textarea id="text" rows="5" placeholder="Paste a message…"></textarea>
+    <div class="row">
+      <button id="sel">Use selected text</button>
+      <button id="go" class="primary">Check</button>
+    </div>
+    <div id="out" hidden></div>
+  </main>
+  <script src="popup.js"></script>
+</body></html>

@@ -1,0 +1,35 @@
+# One command: docker compose up --build   ->  http://localhost:8080
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: phish
+      POSTGRES_PASSWORD: phish
+      POSTGRES_DB: cphishtank
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U phish -d cphishtank"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://phish:phish@db:5432/cphishtank
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-a-real-deployment}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-admin@example.com}
+      CORS_ORIGINS: http://localhost:8080
+      ENABLE_WHOIS: ${ENABLE_WHOIS:-false}
+      GOOGLE_SAFE_BROWSING_KEY: ${GOOGLE_SAFE_BROWSING_KEY:-}
+      VIRUSTOTAL_API_KEY: ${VIRUSTOTAL_API_KEY:-}
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["8000:8000"]
+
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["8080:80"]
+
+volumes:
+  pgdata:

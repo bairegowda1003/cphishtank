@@ -1,0 +1,6 @@
+.cpt-btn { margin: 8px 0; padding: 6px 14px; border: 0; border-radius: 6px; background: #17324D; color: #fff; font: 600 13px system-ui, sans-serif; cursor: pointer; }
+.cpt-btn:disabled { opacity: .6; }
+.cpt-box { margin: 6px 0 12px; padding: 10px 14px; border-radius: 8px; border: 2px solid #ccc; font: 13px/1.45 system-ui, sans-serif; background: #fff; color: #0F1B26; }
+.cpt-box[hidden] { display: none; }
+.cpt-box p { margin: 4px 0; } .cpt-box ul { margin: 4px 0 0 18px; padding: 0; }
+.cpt-ok { border-color: #177E5A; } .cpt-warn { border-color: #D9A400; } .cpt-bad { border-color: #C41E30; background: #FFF5F6; }

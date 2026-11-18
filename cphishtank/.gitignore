@@ -1,0 +1,13 @@
+__pycache__/
+.venv/
+*.pyc
+.env
+*.db
+.pytest_cache/
+node_modules/
+dist/
+backend/data/downloads/
+backend/data/collected/
+backend/data/clean/user_labeled.csv
+backend/data/clean/blind_test.csv
+backend/data/clean/blind_test.freeze.json

@@ -1,0 +1,9 @@
+body { width: 360px; margin: 0; font: 14px/1.45 system-ui, sans-serif; color: #0F1B26; background: #FCFBF8; }
+header { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #17324D; color: #fff; }
+header .mark { width: 18px; height: 8px; background: #FFC93C; transform: rotate(-3deg); } header a { margin-left: auto; color: #C8D6E4; font-size: 12px; }
+main { padding: 12px 14px 14px; } .hint { margin: 0 0 8px; color: #566370; }
+textarea { width: 100%; box-sizing: border-box; padding: 8px; border: 1.5px solid #CBD2D9; border-radius: 6px; font: 13px Georgia, serif; resize: vertical; }
+.row { display: flex; gap: 8px; margin: 8px 0; } button { padding: 7px 12px; border-radius: 6px; border: 1.5px solid #17324D; background: transparent; color: #17324D; font-weight: 600; cursor: pointer; }
+button.primary { background: #17324D; color: #fff; margin-left: auto; } button:disabled { opacity: .5; }
+#out { border: 2px solid; border-radius: 8px; padding: 10px 12px; background: #fff; } #out strong { font-size: 15px; } #out p { margin: 4px 0; } #out ul { margin: 6px 0 0 18px; padding: 0; }
+.ok { border-color: #177E5A; } .warn { border-color: #D9A400; } .bad { border-color: #C41E30; background: #FFF5F6; }

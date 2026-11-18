@@ -1,0 +1,113 @@
+{
+  "total": 19292,
+  "external_test": 3000,
+  "by_class": {
+    "legitimate": 13457,
+    "phishing": 4115,
+    "suspicious": 1720
+  },
+  "by_class_channel": {
+    "legitimate/email": 3908,
+    "legitimate/sms": 9549,
+    "phishing/email": 3236,
+    "phishing/sms": 879,
+    "suspicious/email": 1195,
+    "suspicious/sms": 525
+  },
+  "median_chars": {
+    "legitimate/email": 501,
+    "legitimate/sms": 56,
+    "phishing/email": 615,
+    "phishing/sms": 146,
+    "suspicious/email": 1065,
+    "suspicious/sms": 148
+  },
+  "phishing_pot_date_range": [
+    "2019-09-18",
+    "2026-10-07"
+  ],
+  "funnel": {
+    "phishing_pot": {
+      "raw": 12271,
+      "dropped: not English": 5805,
+      "after cleaning": 5587,
+      "dropped: empty/too short": 851,
+      "changed: ascii-folded": 2708,
+      "dropped: mostly non-text": 28,
+      "changed: forged/invalid date blanked": 2,
+      "dropped: exact duplicate": 1694,
+      "dropped: near duplicate": 691,
+      "final": 3202
+    },
+    "smishtank": {
+      "raw": 1055,
+      "after cleaning": 933,
+      "dropped: empty/too short": 22,
+      "changed: ascii-folded": 15,
+      "dropped: not English": 96,
+      "dropped: mostly non-text": 4,
+      "dropped: near duplicate": 76,
+      "dropped: exact duplicate": 64,
+      "final": 793
+    },
+    "spamassassin": {
+      "raw": 6046,
+      "after cleaning": 5735,
+      "changed: forged/invalid date blanked": 8,
+      "dropped: not English": 258,
+      "dropped: mostly non-text": 24,
+      "changed: ascii-folded": 231,
+      "dropped: empty/too short": 29,
+      "dropped: exact duplicate": 207,
+      "dropped: near duplicate": 432,
+      "final": 5096
+    },
+    "uci_sms": {
+      "raw": 5574,
+      "dropped: not English": 661,
+      "after cleaning": 4825,
+      "changed: ascii-folded": 410,
+      "dropped: empty/too short": 82,
+      "dropped: mostly non-text": 6,
+      "dropped: exact duplicate": 392,
+      "dropped: near duplicate": 52,
+      "final": 4381
+    },
+    "nus_sms": {
+      "raw": 55801,
+      "after cleaning": 36153,
+      "dropped: not English": 10259,
+      "changed: ascii-folded": 641,
+      "dropped: empty/too short": 9208,
+      "dropped: mostly non-text": 181,
+      "dropped: exact duplicate": 6021,
+      "dropped: near duplicate": 82,
+      "dropped: down-sampled": 25050,
+      "final": 5000
+    },
+    "spamdam": {
+      "raw": 76577,
+      "dropped: empty/too short": 39475,
+      "dropped: not English": 23657,
+      "dropped: mostly non-text": 360,
+      "after cleaning": 13085,
+      "changed: ascii-folded": 720,
+      "dropped: exact duplicate": 568,
+      "dropped: near duplicate": 1047
+    },
+    "synthetic_legit": {
+      "raw": 4000,
+      "dropped: near duplicate": 628,
+      "dropped: exact duplicate": 2007,
+      "dropped: down-sampled": 665,
+      "final": 700
+    },
+    "synthetic_bec": {
+      "raw": 800,
+      "dropped: near duplicate": 168,
+      "dropped: exact duplicate": 237,
+      "dropped: down-sampled": 275,
+      "final": 120
+    }
+  }
+}
